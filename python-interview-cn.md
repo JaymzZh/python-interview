@@ -226,24 +226,26 @@ Python中存在两种复制对象的方式：浅拷贝和深拷贝。
 - copy.copy(a) returns a shallow copy of a.
 - copy.deepcopy(a) returns a deep copy of a.
 
-### How can I find the methods or attributes of an object in python?
+### 怎么Python的方法或属性？
 
-Built-in dir() function of Python ,on an instance shows the instance variables as well as the methods and class attributes defined by the instance's class and all its base classes alphabetically. So by any object as argument to dir() we can find all the methods & attributes of the object’s class.
-Following code snippet shows dir() at work :
+Python内置的dir()方法，对一个实例显示了实例的类及其所有基类的按字母顺序定义的实例变量以及方法和类的属性。 
+因此，任何对象作为参数传递给dir()，我们可以找到该对象所有的方法和对象的类的属性。
 
-```
+下面的代码片段显示dir()如何工作：
 
+```python
 class Employee:
-def __init__(self,name,empCode,pay):
-self.name=name
-self.empCode=empCode
-self.pay=pay
+    def __init__(self,name,empCode,pay):
+        self.name=name
+        self.empCode=empCode
+        self.pay=pay
 
-print("dir() listing all the Methods & attributes of class Employee")
+e = Employee('name', 'empCode', 'pay')
+print("dir()列出了Employee类的所有的方法和属性")
 print dir(e)
 -----------------------------------------------------
 Output
-dir() listing all the Methods & attributes of class Employee
+dir()列出了Employee类的所有的方法和属性
 [ '__init__', 'empCode', 'name', 'pay']
 ```
 
