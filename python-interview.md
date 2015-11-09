@@ -367,7 +367,7 @@ server.quit()
 
 ### Desc how to generate random numbers in Python.
 
-Thee standard module random implements a random number generator.  
+The standard module random implements a random number generator.  
 
 There are also many other in this module, such as:
 
@@ -520,7 +520,7 @@ Sarah
 30000.0
 ```
 
-Tuples are similar to lists, but there data can be changed once created throught the execution of program. Individual element of Tuples can be accessed using indexing.
+Tuples are similar to lists, but there data can not be changed once created throught the execution of program. Individual element of Tuples can be accessed using indexing.
 
 Tuples Code Snippet: The Days
 

@@ -197,7 +197,7 @@ Python在2.0中引入列表推导特性，它基于现有列表创建新列表�
 它通过一个函数将每个现有列表中的元素映射成另一个列表元素。
 列表推导不用`map()` , `filter()` 或 `lambda`创建列表。
 
-### Python如何进行内存管理？
+### Python中如何进行内存管理？
 
 Python中的内存管理涉及包含所有的Python对象和数据结构的私有堆。解释器接管了Python中的堆，然而程序员无法访问它。
 堆空间Python对象的分配由Python的内存管理器完成。 Python中的核心API提供了让程序员编写更可靠，更健壮的程序的一些工具。
@@ -211,7 +211,7 @@ gc.enable() - 启用自动垃圾收集。
 gc.disable() - 停用自动垃圾收集。
 ```
 
-### 你如何在Python中使用高阶函数？
+### Python中如何使用高阶函数？
 
 高阶函数接受一个或多个函数作为输入，并返回一个新的函数。有时需要使用函数作为数据。
 为了使用高阶函数，我们需要导入fucntools模块。
@@ -226,7 +226,7 @@ Python中存在两种复制对象的方式：浅拷贝和深拷贝。
 - copy.copy(a) returns a shallow copy of a.
 - copy.deepcopy(a) returns a deep copy of a.
 
-### 怎么Python的方法或属性？
+### 怎么查看Python的方法或属性？
 
 Python内置的dir()方法，对一个实例显示了实例的类及其所有基类的按字母顺序定义的实例变量以及方法和类的属性。 
 因此，任何对象作为参数传递给dir()，我们可以找到该对象所有的方法和对象的类的属性。
@@ -249,12 +249,12 @@ dir()列出了Employee类的所有的方法和属性
 [ '__init__', 'empCode', 'name', 'pay']
 ```
 
-### How do I convert a string to a number?
+### 如何将字符串转换为数字？
 
-Python contains several built-in functions to convert values from one data type to another data type.
-The int function takes string and coverts it to an integer.
+Python中包含几个内置函数将值从一种数据类型转换为另一种数据类型。
+int函数接受字符串，将其转换为整数。
 
-```
+```python
 >>>s = "1234" # s is string
 >>>i = int(s) # string converted to int
 >>>print i+2
@@ -267,14 +267,17 @@ The float function converts strings into float number.
 -------------------------
 1234.22
 ```
-### What is a negative index in python?
 
-Python arrays & list items can be accessed with positive or negative numbers (also known as index).
-For instance our array/list is of size n, then for positive index 0 is the first index, 1 second, last index will be n-1. For negative index, -n is the first index, -(n-1) second, last negative index will be – 1.
-A negative index accesses elements from the end of the list counting backwards.
-An example to show negative index in python
+### Python中负索引是什么？
 
-```
+Python中阵列和列表项可以使用正数或负数（也称为索引）来访问。
+比如我们的数组/列表的大小为n，则正索引0是第一个索引，1是第二个，最后的索引为n-1。
+对于负指数，-n是第一索引， - （N-1）是第二个，最后负指数将是 - 1。
+负数索引从列表中最后一个元素倒序访问。
+
+下面是python负索引的一个例子
+
+```python
 >>> import array
 >>> a= [1, 2, 3]
 >>> print a[-3]
@@ -284,56 +287,59 @@ An example to show negative index in python
 >>> print a[-1]
 3
 ```
-### How  an array in Python?
 
-The array module contains methods for creating arrays of fixed types with homogeneous data types. Arrays are slower then list.
-Array of characters, integers, floating point numbers can be created using array module.
-array(typecode[, intializer])
-Returns a new array whose items are constrained by typecode, and initialized from the optional initialized value. Where the typecode can be for instance ‘c’ for character value, ‘d’ for double, ‘f’ for float.
+### 请介绍Python中数组类型？
 
+数组模块包含用于创建固定的类型与同质的数据类型的数组方法。数组比列表要慢。
+可以使用数组模块来创建字符，整数，浮点数的数组。
 
+`array(typecode[, intializer])`
+返回一个新的数组，其元素数据类型受typecode类型限制，并可从可选初始化值初始化数组。
+其中typecode可以是'c'表示字符型，'d'表示double型，'f'表示浮点型。
 
-### Explain how to create a multidimensional list.
+### 请解释如何创建一个多维列表？
 
-There are two ways in which Multidimensional list can be created:
-By direct initializing the list as shown below to create multidimlist below
+有两种创建多维列表的方法：
 
-```
->>>multidimlist = [ [227, 122, 223],[222, 321, 192],[21, 122, 444]]
->>>print multidimlist[0]
->>>print multidimlist[1][2]
-__________________________
-Output 
-[227, 122, 223]
-192
-```
+1. 第一种通过如下所示直接初始化的方式创建：
 
-The second approach is to create a list of the desired length first and then fill in each element with a newly created lists demonstrated below :
+    ```python
+    >>>multidimlist = [ [227, 122, 223],[222, 321, 192],[21, 122, 444]]
+    >>>print multidimlist[0]
+    >>>print multidimlist[1][2]
+    __________________________
+    Output 
+    [227, 122, 223]
+    192
+    ```
+2. 第二种是先创建指定长度的列表，然后给该列表的每个元素赋值一个新的列表，如下所示：
 
-```
->>>list=[0]*3
->>>for i in range(3):
->>> list[i]=[0]*2
->>>for i in range (3):
->>> for j in range(2):
->>> list[i][j] = i+j
->>>print list
-__________________________
-Output 
-[[0, 1], [1, 2], [2, 3]]
-```
-### Explain how to overload constructors (or methods) in Python.
+    ```python
+    >>>list=[0]*3
+    >>>for i in range(3):
+    >>> list[i]=[0]*2
+    >>>for i in range (3):
+    >>> for j in range(2):
+    >>> list[i][j] = i+j
+    >>>print list
+    __________________________
+    Output 
+    [[0, 1], [1, 2], [2, 3]]
+    ```
 
-`_init__ ()` is a first method defined in a class. when an instance of a class is created, python calls __init__() to initialize the attribute of the object.
-Following example demonstrate further:
+### 请解释Python中如何重载构造函数（或方法）？
 
-```
+`_init__ ()` 是类中定义的第一个方法，当一个类的实例被创建时，python调用__init__()方法实例化该对象的属性。
+
+下面的例子进一步说明：
+
+```python
 class Employee:
 
-def __init__(self, name, empCode,pay):
-self.name=name
-self.empCode=empCode
-self.pay=pay
+    def __init__(self, name, empCode,pay):
+        self.name=name
+        self.empCode=empCode
+        self.pay=pay
 
 e1 = Employee("Sarah",99,30000.00)
 
@@ -342,25 +348,25 @@ print("Employee Details:")
 
 print(" Name:",e1.name,"Code:", e1.empCode,"Pay:", e1.pay)
 print(" Name:",e2.name,"Code:", e2.empCode,"Pay:", e2.pay)
+
 ---------------------------------------------------------------
 Output
 
 Employee Details:
 (' Name:', 'Sarah', 'Code:', 99, 'Pay:', 30000.0)
 (' Name:', 'Asrar', 'Code:', 100, 'Pay:', 60000.0)
-
 ```
 
-### Desc to send mail from a Python script.
+### 请介绍如何用Python脚本发送邮件？
 
-The smtplib module defines an SMTP client session object that can be used to send mail to any Internet machine.
+smtplib模块定义了一个SMTP客户端会话对象，可用于将邮件发送到任何互联网设备。
 
-A sample email is demonstrated below.
+下面的示例演示发送电子邮件：
 
-```
+```python
 import smtplib
-SERVER = smtplib.SMTP(‘smtp.server.domain’)
-FROM = sender@mail.com
+SERVER = smtplib.SMTP("smtp.server.domain")
+FROM = "sender@mail.com"
 TO = ["user@mail.com"] # must be a list
 SUBJECT = "Hello!"
 TEXT = "This message was sent with Python's smtplib."
@@ -376,31 +382,32 @@ server.sendmail(FROM, TO, message)
 server.quit()
 ```
 
+### 请说明Python中如何生成的随机数？
 
+标准模块random实现了一个随机数发生器。
 
-### Desc how to generate random numbers in Python.
+在该模块中也有许多其他方法，如：
 
-Thee standard module random implements a random number generator.  
-
-There are also many other in this module, such as:
-
+```python
+uniform(a, b) #returns a floating point number in the range [a, b].
+randint(a, b) #returns a random integer number in the range [a, b].
+random() #returns a floating point number in the range [0, 1].
 ```
-uniform(a, b) returns a floating point number in the range [a, b].
-randint(a, b)returns a random integer number in the range [a, b].
-random()returns a floating point number in the range [0, 1].
-```
-Following code snippet show usage of all the three functions of module random:
-Note: output of this code will be different evertime it is executed.
 
-```
+下面的代码段展示了random模块三种函数的用法：
+
+Note：这段代码的输出将在每次执行时会有所不同。
+
+```python
 import random
-i = random.randint(1,99)# i randomly initialized by integer between range 1 & 99
-j= random.uniform(1,999)# j randomly initialized by float between range 1 & 999
-k= random.random()# k randomly initialized by float between range 0 & 1
+i = random.randint(1,99) # i randomly initialized by integer between range 1 & 99
+j= random.uniform(1,999) # j randomly initialized by float between range 1 & 999
+k= random.random() # k randomly initialized by float between range 0 & 1
 print("i :" ,i)
 print("j :" ,j)
 print("k :" ,k) 
-__________
+
+---------------------------------------------------------------
 Output -
 ('i :', 64)
 ('j :', 701.85008797642115)
@@ -412,163 +419,157 @@ Output-
 ('k :', 0.9946957743038618)
 ```
 
-### How do we make python scripts executable?
+### 如何让Python脚本执行？
 
-Python scripts can be executed in two ways:
-Suppose I want to execute script1.py
-We can open the script1.py in IDE editor & run the script in the frontmost window of the python IDE by hitting the run all button.
-Second way is using command prompt by making sure PATH is set appropriately directly type script name else type
+Python脚本可以用两种方式执行：
 
-```
->>>python script1.py
+假设我想执行script1.py
+1. 我们可以在IDE编辑器中打开script1.py，然后通过点击在Python IDE中的最前面的窗口的运行所有按钮运行脚本。
+2. 第二种方法是使用命令提示符，确保路径设置适当,直接输入脚本名和其他参数
+    ```bash
+    >>>python script1.py
+    ```
 
-```
+### 请解释Python中如何创建表单？
 
-### Explain how to make Forms in python.
-As python is scripting language forms processing is done by Python. We need to import cgi module to access form fields using FieldStorage class.
+Python作为脚本语言，表单处理已经由Python完成。我们只需要导入cgi模块，通过FieldStorage类来访问表单域。
 
-Every instance of class FieldStorage (for 'form') has the following attributes:
+FieldStorage类的每个实例（“表单”）都包含以下属性：
+* form.name: The name of the field, if specified. 
+* form.filename: If an FTP transaction, the client-side filename. 
+* form.value: The value of the field as a string. 
+* form.file: file object from which data can be read.
+* form.type: The content type, if applicable. 
+* form.type_options: The options of the 'content-type' line of the HTTP request, returned as a dictionary. 
+* form.disposition: The field 'content-disposition'; None if unspecified. 
+* form.disposition_options: The options for 'content-disposition'. 
+* form.headers: All of the HTTP headers returned as a dictionary.
 
-form.name: The name of the field, if specified. 
-form.filename: If an FTP transaction, the client-side filename. 
-form.value: The value of the field as a string. 
-form.file: file object from which data can be read. 
-form.type: The content type, if applicable. 
-form.type_options: The options of the 'content-type' line of the HTTP request, returned as a dictionary. 
-form.disposition: The field 'content-disposition'; None if unspecified. 
-form.disposition_options: The options for 'content-disposition'. 
-form.headers: All of the HTTP headers returned as a dictionary.
+Python中表单处理的代码片段：
 
-A code snippet of form handling in python:
-
-```
+```python
 import cgi
 
 form = cgi.FieldStorage()
 if not (form.has_key("name") and form.has_key("age")):
-print "<H1>Name & Age not Entered</H1>"
-print "Fill the Name & Age accurately."
-return
+    print "<H1>Name & Age not Entered</H1>"
+    print "Fill the Name & Age accurately."
+    return
 print "<p>name:", form["name"].value
 print "<p>Age:", form["age"].value
-
 ```
 
-### Desc how to implement Cookies for Web python.
-A cookie is an arbitrary string of characters that uniquely identify a session.
+### 请说明python Web中如何实现Cookies？
 
-Each cookie is specific to one Web site and one user.
+Cookie是字符唯一地标识会话的任意字符串。每一个cookie是特定于一个网站和一个用户。
 
-The Cookie module defines classes for abstracting the concept of cookies. It contains following method to creates cookie
+Cookie模块定义为抽象的Cookie概念类。它包含以下方法来创建的cookie：
 
-```
+```python
 Cookie.SimpleCookie([input])
 Cookie.SerialCookie([input]
 Cookie.SmartCookie([input])
-for instance following code creates a new cookie ck-
 
+#for instance following code creates a new cookie ck
 import Cookie
 ck= Cookie.SimpleCookie ( x )
-
-
 ```
-### Desc how to use Sessions for Web python.
 
-Sessions are the server side version of cookies. While a cookie preserves state at the client side, sessions preserves state at server side.
+### 请说明python Web中如何使用sessions？
 
-The session state is kept in a file or in a database at the server side. Each session is identified by a unique session id (SID). To make it possible to the client to identify himself to the server the SID must be created by the server and sent to the client whenever the client makes a request.
+sessions是cookie的服务器端版本。cookie在客户端保存状态，然而sessions在服务器端的保存状态。
 
-Session handling is done through the web.session module in the following manner:
+会话状态保存在服务器端的一个文件中或数据库中。每个会话都由一个唯一的会话ID（SID）标识。为了使人们有可能在客户端来识别他自己，客户机每发送一个请求，SID都必须由服务器创建然后发送到客户端。
 
-```
-import web.session session = web.session.start( option1, Option2,... )
+会话处理是通过以下列方式的web.session模块完成：
+```python
+import web.session
+session = web.session.start( option1, Option2,... )
 session['myVariable'] = 'It can be requested'
-
 ```
 
-### Desc how exceptions are handled in python.
+### 请解释在Python中如何处理异常？
 
-Errors detected during execution of program are called exceptions. Exceptions can be handled using the try..except statement. 
-We basically put our usual statements within the try-block and put all our error handlers in the except-block.
+执行程序的过程中检测到的错误被称为异常。异常可以通过try..except语句来处理。 
+我们基本上把我们平时的语句在try块内，并把我们的错误处理放在except块内。
 
-```
-try…except demo code:
->>> while True:
-try:
-         x = int(raw_input("Enter no. of your choice: "))
-         break
-except ValueError:
-         print "Oops! Not a valid number. Attempt again"
+```python
+#try…except demo code:
+while True:
+    try:
+        x = int(raw_input("Enter no. of your choice: "))
+        break
+    except ValueError:
+        print "Oops! Not a valid number. Attempt again"
 
+---------------------------------------
+#Output:
 Enter no. of your choice: 12ww
 Oops! Not a valid number. Attempt again
 Enter no. of your choice: hi there
 Oops! Not a valid number. Attempt again
 Enter no. of your choice: 22
->>>
-
-
 ```
-### What is used to create Unicode string in Python?
 
+### Python中怎样创建Unicode字符串？
 
-Unicode is a system to represent characters from all the world's different languages.
-Two methods can be used to create unicode string:
-unicode() method is unicode(string[, encoding, errors]), its arguments should be 8-bit strings. The first argument is converted to Unicode using the specified encoding, if encoding argument left, the ASCII encoding is used for the conversion.
-encode() method is encode([encoding], [errors='strict']), which returns an 8-bit string version of the Unicode string.
+Unicode是一个体系，用字符来表示世界上所有的不同的语言。
 
-### When to use list vs. tuple vs. dictionary vs. set?
+有两种方法可用于创建unicode字符串：
+1. unicode(string[, encoding, errors])，它的参数应该是8位的字符串，第一个参数用指定的编码转换成Unicode，如果没有指定编码参数，则使用ASCII编码来进行转换。
+2. encode([encoding], [errors='strict'])，它返回一个8位的Unicode字符串。
 
-List is like array, it can be used to store homogeneous as well as heterogeneous data type (It can store same data type as well as different data type). List are faster compared to array. Individual element of List data can be accessed using indexing & can be manipulated.
+### 什么时候使用list、tuple、dictionary、set？
 
-```
-List Code Snippet:
+列表像数组，它可以被用来存储同质以及异构数据类型（它可以存储相同的数据类型以及不同数据类型）。列表比数组快。列表数据的各个元素，都可以使用索引来访问并且可被操纵。
+
+```python
+#List Code Snippet:
 list = ["Sarah",29,30000.00]
 for i in range (3):
      print list[i]
-------------------
+----------------------------
 Output
 Sarah
 29
 30000.0
 ```
 
-Tuples are similar to lists, but there data can be changed once created throught the execution of program. Individual element of Tuples can be accessed using indexing.
+元组和列表相似，但是它的数据一旦创建，在程序的执行过程就不能改变。元组的各个元素，可以使用索引来访问。
 
-Tuples Code Snippet: The Days
-
-```
+元组代码段：The Days
+```python
 days = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 print days
 ------------------------------
 ('Sunday', 'Mondays', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
 ```
 
-Sets stores unordered values & have no index. And unlike Tuples and Lists, Sets can have no duplicate data, It is similar to Mathematical sets.
+集合存储无序值并且没有索引。不像元组和列表，集合不可能有重复的数据，它类似于数学集合。
 
-add() function can be used to add element to a set.
-update() function can be used to add a group of elements to a set.
-Copy() function can be used to create clone of set.
-Set Code Snippet:
+* add() function can be used to add element to a set.
+* update() function can be used to add a group of elements to a set.
+* Copy() function can be used to create clone of set.
 
-```
-
+集合代码段：
+```python
 disneyLand = set (['Minnie Mouse', 'Donald Duck', 'Daisy Duck', 'Goofy'])
 disneyLand.add('Pluto')
 print disneyLand
 -----------------------------------------------
 Output
 set(['Goofy', 'Daisy Duck', 'Donald Duck', 'Minnie Mouse', ’Pluto’])
+```
 
-Dictionary are similar to what their name is. In a dictionary, In python, the word is called a 'key', and the definition a 'value'. Dictionaries consist of pairs of keys and their corresponding values.
+字典可存储任意类型对象，如其他容器模型。字典由键和对应值成对组成。
 
 Dictionary Code Snippet:
->>> dict = {'India': 'Bharat', 'Angel': ‘Mother Teresa’, 'Cartoon': 'Mickey'}
+```python
+>>>dict = {'India': 'Bharat', 'Angel': ‘Mother Teresa’, 'Cartoon': 'Mickey'}
 >>>print dict[India]
 Bharat
 >>>print dict[Angel]
 Mother Teresa
-
 ```
 
 ### Explain the disadvantages of python
