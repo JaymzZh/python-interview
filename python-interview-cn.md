@@ -563,7 +563,7 @@ set(['Goofy', 'Daisy Duck', 'Donald Duck', 'Minnie Mouse', ’Pluto’])
 
 字典可存储任意类型对象，如其他容器模型。字典由键和对应值成对组成。
 
-Dictionary Code Snippet:
+字典代码段：
 ```python
 >>>dict = {'India': 'Bharat', 'Angel': ‘Mother Teresa’, 'Cartoon': 'Mickey'}
 >>>print dict[India]
@@ -572,40 +572,42 @@ Bharat
 Mother Teresa
 ```
 
-### Explain the disadvantages of python
-Disadvantages of Python are:
+### 请介绍下Python的缺点
 
-Python isn't the best for memory intensive tasks.
-Python is interpreted language & is slow compared to C/C++ or java.
-Python not a great choice for a high-graphic 3d game that takes up a lot of CPU.
-Python is evolving continuously, with constant evolution there is little substantial documentation available for the language.
+Python的缺点有：
+1. Python不太适合内存密集型任务；
+2. Python是解释性语言，因此相比c/c++或者java会慢一些；
+3. Python不是占用大量CPU的3D高质量图形游戏的最好的选择；
+4. Python正在不断发展，随着它不断的发展，可用的语言相关的文档还很少。 
 
-### What are the ways to write a function using call by reference?
+### 怎么编写按引用方式调用的函数？
 
-Arguments in python are passed as an assignment. This assignment creates an object that has no relationship between an argument name in source and target. The procedure to write the function using call by reference includes:
-The tuple result can be returned to the object which called it. The example below shows it:
+Python中参数是分配的。这种分配将创建一个对象，它在源参数名称和目标参数名称之间没有任何关系。
+该函数的返回值可以是元组。
 
-```
+下面是例子说明：
+
+```python
 def function(a, b):
-a = 'value' 
-b = b + 1 
-# a and b are local variables that are used to assign the new objects
-return a, b 
-# This is the function that is used to return the value stored in b
+    a = 'value' 
+    b = b + 1 
+    # a and b are local variables that are used to assign the new objects
+    return a, b 
+    # This is the function that is used to return the value stored in b
 ```
 
-• The use of global variables allows the function to be called as reference but this is not the safe method to call any function. 
-• The use of mutable (they are the classes that consists of changeable objects) objects are used to pass the function by reference. 
+• 使用全局变量允许函数被当作引用来调用，但用这种方式调用任何函数是不安全的。
+• 使用可变（它们包含可变对象的类）对象所使用的引用传递函数。
 
-```
+```python
 def function(a):
-a[0] = 'string' 
-a[1] = a[1] + 1 
-# The ‘a’ array give reference to the mutable list and it changes the changes that are shared
-args = ['string', 10]
-func1(args)
-print args[0], args[1] 
-#This prints the value stored in the array of ‘a’
+    a[0] = 'string' 
+    a[1] = a[1] + 1 
+    # The ‘a’ array give reference to the mutable list and it changes the changes that are shared
+    args = ['string', 10]
+    func1(args)
+    print args[0], args[1] 
+    #This prints the value stored in the array of ‘a’
 ```
 
 ### What are the commands that are used to copy an object in Python?
