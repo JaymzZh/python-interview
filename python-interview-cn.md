@@ -610,57 +610,39 @@ def function(a):
     #This prints the value stored in the array of ‘a’
 ```
 
-### What are the commands that are used to copy an object in Python?
+### Python中使用什么命令拷贝对象？
 
-The command that is used to copy an object in python includes: 
-• copy.copy() function: This makes a copy of the file from source to destination. It returns a shallow copy of the parameter that is passed. 
-• copy.deepcopy(): This also creates a copy of the object from source to destination. It returns a deep copy of the parameter that is passed to the function. 
-The dictionary consists of all the objects and the copy() method which is used as:
-newdict = olddict.copy()
-The assignment statement doesn’t copy any object but it creates a binding between the target and the object that is used for the mutable items. Copy is required to keep a copy of it using the modules that is provided to give generic and shallow operations.
+Python中用来拷贝对象的命令有： 
+• copy.copy() 函数: 从源文件到目标文件的拷贝，它返回传递参数的浅拷贝。 
+• copy.deepcopy(): 同样是从源文件到目标文件的拷贝，不过它返回传递参数的深拷贝。
 
-### What is the difference between deep and shallow copy?
+### 深拷贝和浅拷贝的区别？
 
-• Shallow copy is used when a new instance type gets created and it keeps the values that are copied in the new instance. Whereas, deep copy is used to store the values that are already copied. 
-• Shallow copy is used to copy the reference pointers just like it copies the values. These references point to the original objects and the changes made in any member of the class will also affect the original copy of it. Whereas, deep copy doesn’t copy the reference pointers to the objects. Deep copy makes the reference to an object and the new object that is pointed by some other object gets stored. The changes made in the original copy won’t affect any other copy that uses the object. 
-• Shallow copy allows faster execution of the program and it depends on the size of the data that is used. Whereas, deep copy makes it slower due to making certain copies for each object that is been called.
+* 浅拷贝用于创建一个新的实例类型，并且确保被复制到新实例中的值保持不变。而深拷贝用于存储那些已被复制的值。
+* 浅拷贝来拷贝引用指针，就像它拷贝了值一样。这些引用指向原来的对象，在类的任何成员中所做的更改也会影响它的原件。然而，深拷贝不拷贝对象的引用指针。
+深拷贝引用一个对象，并且指向一些其他对象的存储新的对象。对原副本所做的更改不会影响使用对象的其他副本。 
+* 浅拷贝允许更快的程序执行的，它依赖于所使用的数据的大小。然而，深拷贝使得它更慢，因为调用每个对象时会使用明确的副本。
 
-### Write a program to find out the name of an object in python.
+### Python中如何使用三元运算符？
 
-The object doesn’t have any name and there is no way the can be found out for objects. The assignment is used to bind a name to the value that includes the name of the object that has to be bound by a value. If the value is callable then the statements are made true and then the program followed can be used to find the reference name of an object. 
+三元运算符是用于显示条件语句的操作符。它由真或假值与已为它进行计算一条语句。操作符如下：
 
-
-```
-class try:
-pass
-B = A
-a = B()
-b = a
-print b
-<__main__.try instance at 0x16D07CC>
-print b
-```
-The class consists of name and the names are invoked by using the the variable B that creates an instance for the class try. The method is to find out from all the namespaces that the object exists and then print the name of the object.
-
-### How can the ternary operators be used in python?
-
-The ternary operator is the operator that is used to show the conditional statements. This consists of the true or false values with a statement that has to be evaluated for it. The operator will be given as:
-
-```
-[on_true] if [expression] else [on_false]
+```python
+# [on_true] if [expression] else [on_false]
 x, y = 25, 50
 big = x if x < y else y
 ```
 
-This is the lowest priority operator that is used in making a decision that is based on the values of true or false. The expression gets evaluated like if x<y else y, in this case if x<y is true then the value is returned as big=x and if it is incorrect then big=y will be sent as a result.  
+这是在判断真假值时所用的最低优先级的操作符。表达式计算如 if x<y else y，在这种情况下，如果x<y为真，那么返回值big= X，如果为假，big=y将作为返回值。  
 
+### 如何将字符串装换为数字？
 
-### How the string does get converted to a number?
-
-• To convert the string into a number the built-in functions are used like int() constructor. It is a data type that is used like int (‘1’) ==1. 
-• float() is also used to show the number in the format as float(‘1’)=1.
-• The number by default are interpreted as decimal and if it is represented by int(‘0x1’) then it gives an error as ValueError. In this the int(string,base) function takes the parameter to convert string to number in this the process will be like int(‘0x1’,16)==16. If the base parameter is defined as 0 then it is indicated by an octal and 0x indicates it as hexadecimal number. 
-• There is function eval() that can be used to convert string into number but it is a bit slower and present many security risks like __import__('os').system("rm -rf$HOME") - use of this will delete the home directory of the system.
+* 内置函数int()可用于将字符串装换为数字，它的用法为`int('1') == 1`。
+* float() 同样可以将字符串装换为数字，格式为`float(‘1’)==1`.
+* 数字默认被解释为十进制。如果表示为 int('0x1') ，那么它将抛出一个ValueError错误。
+int(string,base) 函数将字符串参数转换为数字，在这个过程中表示形式如：int(‘0x1’,16)==16,
+如果参数base设为0，则表示转换为8进制数，0x表示装换为16进制数。 
+* eval()函数可以将字符串转换成数字，但是相对较慢并且还有点安全隐患，比如`__import__('os').system("rm -rf$HOME")`，使用该方法将会删除系统home目录下的所有文件。
 
 ### What is the function of negative index?
 
@@ -673,7 +655,6 @@ There is a method which is built-in to show the instances of an object that cons
 isinstance(obj, (class1, class2, ...)) that is used to check about the object’s presence in one of the classes. The built in types can also have many formats of the same function like isinstance(obj, str) or isinstance(obj, (int, long, float, complex)). 
 
 It is not preferred to use the class instead user-defined classes are made that allow easy object-oriented style to define the behavior of the object’s class. These perform different thing that is based on the class. The function differs from one class to another class. To find out the object of the particular class the following program is used:
-
 
 ```
 def search(obj):
