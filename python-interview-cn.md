@@ -644,28 +644,35 @@ int(string,base) 函数将字符串参数转换为数字，在这个过程中表
 如果参数base设为0，则表示转换为8进制数，0x表示装换为16进制数。 
 * eval()函数可以将字符串转换成数字，但是相对较慢并且还有点安全隐患，比如`__import__('os').system("rm -rf$HOME")`，使用该方法将会删除系统home目录下的所有文件。
 
-### What is the function of negative index?
+### 什么是负索引？
 
-The sequences in python are indexed and it consists of the positive as well as negative numbers. The numbers that are positive uses ‘0’ that is uses as first index and ‘1’ as the second index and the process goes on like that. The index for the negative number starts from ‘-1’ that represents the last index in the sequence and ‘-2’ as the penultimate index and the sequence carries forward like the positive number. The negative index is used to remove any new-line spaces from the string and allow the string to except the last character that is given as S[:-1]. The negative index is also used to show the index to represent the string in correct order.
+Python中的序列具有索引，它包括正索引和负索引。
+正数‘0’表示第一个索引，‘1’表示第二个，以此类推。
+负数索引从‘-1’开始，它表示序列中的最后一个元素，‘-2’表示倒数第二个索引，以此类推。
+负索引用于从字符串中删除的任何新行的空格，允许将字符串的最后一个字符除去，如S[:-1]。
+负索引也用来表示正确的字符串顺序。
 
-### Write a program to check whether the object is of a class or its subclass.
+### 编写一个程序来检查对象是否是一个类或者它的子类。
 
-There is a method which is built-in to show the instances of an object that consists of many classes by providing a tuple in a table instead of individual classes. The method is given as isinstance(obj,cls) and in more details given as:
+存在一个内置方法，通过表中的元组而不是单独的类来显示的对象实例由许多类组成，
+这个方法就是isinstance(obj,cls)，更多细节如下：
 
-isinstance(obj, (class1, class2, ...)) that is used to check about the object’s presence in one of the classes. The built in types can also have many formats of the same function like isinstance(obj, str) or isinstance(obj, (int, long, float, complex)). 
+`isinstance(obj, (class1, class2, ...))` 用来检测对象是否存在于其中的一个类中，
+这个内置方法有许多格式，比如：`isinstance(obj, str)` or `isinstance(obj, (int, long, float, complex))`。
 
-It is not preferred to use the class instead user-defined classes are made that allow easy object-oriented style to define the behavior of the object’s class. These perform different thing that is based on the class. The function differs from one class to another class. To find out the object of the particular class the following program is used:
+这些执行是基于类的不同的事情。该功能从一类到另一个类会有所不同。下面解释程序使用的特定类的对象：
 
-```
+```python
 def search(obj):
-if isinstance(obj, box):
-# This is the code that is given for the box and write the program in the object
-elif isinstance(obj, Document):
-# This is the code that searches the document and writes the values in it
-elif 
-obj.search()
-#This is the function used to search the object’s class.
+    if isinstance(obj, box):
+        # This is the code that is given for the box and write the program in the object
+    elif isinstance(obj, Document):
+        # This is the code that searches the document and writes the values in it
+    elif
+    obj.search()
+    #This is the function used to search the object’s class.
 ```
+
 ### Why does delegation performed in Python?
 
 Delegation is a technique that is used in object oriented programming. This is used to show the object and the behavior of the methods that are used. The class can be created to provide an implementation of the method that allows the method to be referenced. The delegate is having the parameter and the return value in an object. It also allows the methods to be passed as parameters and allow the defining of the callback methods that can be grouped together in multiple methods. These methods can be called from a single event. The example shows a class that captures the behavior of the file and converts data from lower to uppercase. 
