@@ -673,26 +673,31 @@ def search(obj):
     #This is the function used to search the object’s class.
 ```
 
-### Why does delegation performed in Python?
+### Python中委托是是什么？
 
-Delegation is a technique that is used in object oriented programming. This is used to show the object and the behavior of the methods that are used. The class can be created to provide an implementation of the method that allows the method to be referenced. The delegate is having the parameter and the return value in an object. It also allows the methods to be passed as parameters and allow the defining of the callback methods that can be grouped together in multiple methods. These methods can be called from a single event. The example shows a class that captures the behavior of the file and converts data from lower to uppercase. 
+委托是一个用于面向对象编程的技术。这是用来表明目的和所使用的方法的行为。类可以创建，以提供允许该方法中引用的方法的实现。该委托具有参数和对象的返回值。它也允许方法作为参数传递，并允许其可以组合在一起，在多个方法回调方法中定义。
+这些方法可以从一个单一的事件调用。
 
-```
+这个例子定义了一个类，捕捉文件的行为，将数据从小写转换为大写。
+
+```python
 class upcase:
-def __init__(self, out):
-self._out = out
-def write(self, s):
-self._outfile.write(s.upper())
-def __getattr__(self, name):
-return getattr(self._out, name)
+    def __init__(self, out):
+        self._out = out
+        
+    def write(self, s):
+        self._outfile.write(s.upper())
+        
+    def __getattr__(self, name):
+        return getattr(self._out, name)
 ```
 
-The write() method that is used in the upcase class converts the string to the uppercase before calling another method. The delegation is being given using the self.__outfile object.
+upcase类中的write()方法在调用另一个方法之前，将字符串转换为大写。使用self.__outfile表示委托。
 
-### What is the function of “self”?
+### 方法中的self参数是什么？
 
-“Self” is a variable that represent the instance of the object to itself. In most of the object oriented programming language, this is passed as to the methods as a hidden parameters that is defined by an object. But, in python it is declare it and pass it explicitly. It is the first argument that gets created in the instance of the class A and the parameters to the methods are passed automatically. It refers to separate instance of the variable for individual objects. This is the first argument that is used in the class instance and the “self” method is defined explicitly to all the methods that are used and present. The variables are referred as “self.xxx”. 
-
+`self`是表示对象的实例本身的变量。在大多数面向对象编程语言中，这是通过作为该对象定义方法的隐藏参数。但是，python中它是需要声明并且明确传递的。它是类A创建实例时的第一个参数并且自动传递给方法。
+它指向为单个对象的各自的实例。它是类实例的第一个参数，并且`self`方法被明确地定义为所有所使用和当前的方法。变量表示为`self.xxx`. 
 
 ### How is “self” explicitly defined in a method?
 
