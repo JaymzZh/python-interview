@@ -699,59 +699,73 @@ upcase类中的write()方法在调用另一个方法之前，将字符串转换�
 `self`是表示对象的实例本身的变量。在大多数面向对象编程语言中，这是通过作为该对象定义方法的隐藏参数。但是，python中它是需要声明并且明确传递的。它是类A创建实例时的第一个参数并且自动传递给方法。
 它指向为单个对象的各自的实例。它是类实例的第一个参数，并且`self`方法被明确地定义为所有所使用和当前的方法。变量表示为`self.xxx`. 
 
-### How is “self” explicitly defined in a method?
+### 如何在方法中明确的定义“self”？
 
-“Self” is a reference variable and an instance attribute that is used instead of the local variable inside the class. The function or the variable of the self like self.x or self.meth() can be used in case the class is not known. There are no variables declared as local. It doesn’t have any syntax and it allow the reference to be passed explicity or call the method for the class that is in use. The use of writebaseclass.methodname(self, <argument list>) shows that the method of _init_() can be extended to the base class methods. This also solves the problem that is syntactic by using the assignment and the local variables. This tells a way to the interpreter the values that are to be used for the instance variables and local variables. The use of explicit self.var solves the problem mentioned above.
+`self`是引用变量和实例属性，它被用来代替在类内的局部变量。
+`self`的方法或变量，如self.x或self.meth()即使在不知道是什么类的情况下也可以使用。
+没有声明局部变量，它不具有任何语法和它允许为正在使用的类显式传递引用或调用方法。
+`writebaseclass.methodname(self, <argument list>)`的使用表明`__init__()`方法可以延伸到基类方法。
+这也解决了通过使用分配和局部变量语法的问题。这也提供了一种实例变量和局部变量交互的方法。显式使用self.var的解决了上述问题。
 
 ### What is the use of join() for a string rather than list or tuple method?
 
-The functions and the methods that are used for the functionality uses the string module. This string module is represented as by using the join function in it:
+所使用的功能的函数和方法使用字符串模块。该字符串模块通过使用join函数来表示：
 
-> ", ".join(['1', '2', '4', '8', '16']) that results in "1, 2, 4, 8, 16"
-
-The string variable that is used provide a fixed string literal to allow the names that are used to be bounded to the strings. join() is a string method that is used to provide a separator string to use the function over the sequence of the string and insert the function to an adjacent elements. The method uses any number of arguments that follow some rules that has to be put up for the sequence objects that the class defines for itself. The join is used for the string module that is used to join the string characters together as it is given in the program. The example is given as:
+```python
+", ".join(['1', '2', '4', '8', '16']) #that results in "1, 2, 4, 8, 16"
 ```
+
+所使用的字符串变量提供一个固定的字符串，以允许用于有界字符串的名称。
+join()是用于提供一个分隔字符串使用的函数在字符串的序列，并插入函数到相邻元素的字符串函数。
+该方法使用任意数量的遵循一些已经被定义在序列对象自身上的规则的参数。
+string模块中的join函数用于将程序中已经给出的字符串连接在一起。
+ 
+下面是例子:
+
+```python
 string.join(['1', '2', '4', '8', '16'], ", ")
 ```
-### What is the process of compilation and linking in python?
 
-The compiling and linking allows the new extensions to be compiled properly without any error and the linking can be done only when it passes the compiled procedure. If the dynamic loading is used then it depends on the style that is being provided with the system. The python interpreter can be used to provide the dynamic loading of the configuration setup files and will rebuild the interpreter. The steps that is required in this as:
-• Create a file with any name and in any lanugage that is supported by the compiler of your system. For example comp.c
-• Place this file in the Modules/ directory of the distribution which is getting used. 
-• Add a line in the file Setup.local that is present in the Modules/ directory. 
-• Run the file using spam comp.o
-• After successful run of this rebuild the interpreter by using the make command on the top-level directory. 
-• If the file is changed then run rebuildMakefile by using the command as ‘make Makefile’.
+### Python中编译和链接的过程？
 
-### What is the procedure to extract values from the object used in python?
+编译和链接允许新的扩展被正确编译，且只有当它经过编译的过程后连接才完成。如果使用动态加载，它将依赖于正被提供的系统的样式。
+Python解释器可用于提供配置设置文件的动态加载并重建解释。
 
-To extract the value it requires the object type to be defined and according to the object type only the values will be fetched. The values will be extracted as:
-• If the object is a tuple then PyTuple_Size() method is used that returns the length of the values and another method PyTuple_GetItem() returns the data item that is stored at a specific index. 
-• If the object is a list then PyListSize() is having the same function that is defined for the tuple and PyList_GetItem() that also return the data items at a specified index.
-• Strings uses PyString_Size() to return the length of the value and PyString_AsString() that return the pointer to its value. 
-• To check the type of the object and the extracted values use of methods like PyString_Check(), PyTuple_Check(), PyList_Check(), etc are used.
+以下为必须的步骤：
+* 创建具有任何名称和所支持的系统的编译器的任何语言的文件。例如comp.c
+* 把这个文件习惯性放在分配的Modules/目录中。
+* 在Modules/目录中的Setup.local文件添加一行。
+* 通过`spam comp.o`运行文件
+* 此次运行成功后，可以通过在顶级目录执行make命令重新解释。
+* 如果文件被改变，那么通过使用'make Makefile'命令运行rebuildMakefile。
 
-### What are the steps required to make a script executable on Unix?
+### 从Python中使用的对象提取值流程是什么？
 
-The steps that are required to make a script executable are to:
+为了提取它的值，它要求对象类型必须定义，只根据对象类型将可以获取到值。
+值的提取如下：
+* 如果对象是一个元组，PyTuple_Size()方法用来返回的值的长度，另一方法PyTuple_GetItem()返回存储在一个特定的索引的数据项。 
+* 如果对象是一个列表，PyListSize()和元组中的一样，PyList_GetItem()也返回特定索引处的数据项。
+* 字符串使用PyString_Size()返回其值的长度，PyString_AsString()返回指向该值的指针。 
+* PyString_Check()，PyTuple_Check()，PyList_Check(）等被用来检查对象的类型和所提取的值。
 
-• First create a script file and write the code that has to be executed in it.
-• Make the file mode as executable by making the first line starts with `#!` this is the line that python interpreter reads. 
-• Set the permission for the file by using `chmod +x` file. The file uses the line that is the most important line to be used:
+### Unix中执行脚本需要哪些步骤？
 
-```
- #!/usr/local/bin/python
-```
+使脚本可执行所需要的步骤有：
 
-• This explains the pathname that is given to the python interpreter and it is independent of the environment programs. 
-• Absolute pathname should be included so that the interpreter can interpret and execute the code accordingly. The sample code that is written:
-
-```
-#! /bin/sh
-# Write your code here
-exec python $0 ${1+"$@"}
-# Write the function that need to be included.
-```
+* 首先创建一个脚本文件，在它里面写入被执行的代码。
+* 通过使第一行以`#!`开始使文件可执行，这是Python解释器可读取的行。
+* 通过使用'chmod + x`来设置该文件的权限，下面是该文件将要使用的最重要一行：
+    ```
+    #!/usr/local/bin/python
+    ```
+* 这一行说明了Python解释器的路径，它是独立于环境的程序。
+* 使用绝对路径来确保解释器解释和执行相应的代码。示例代码如下：
+    ```python
+    #! /bin/sh
+    # Write your code here
+    exec python $0 ${1+"$@"}
+    # Write the function that need to be included.
+    ```
 
 ### How does global value mutation used for thread-safety?
 
