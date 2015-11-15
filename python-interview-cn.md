@@ -771,19 +771,22 @@ Python解释器可用于提供配置设置文件的动态加载并重建解释�
 
 The global interpreter lock is used to allow the running of the thread one at a time. This is internal to the program only and used to distribute the functionality along all the virtual machines that are used. Python allows the switching between the threads to be performed by using the byte code instructions that are used to provide platform-independence. The sys.setcheckinterval() method is used that allow the switching to occur during the implementation of the program and the instruction. This provides the understanding in the field of accounting to use the byte code implementation that makes it portable to use. The atomicity can be provided such that the shared variables can be given as built-in data types.
 
-### Write a program to read and write the binary data using python?
+### 请用python写一个读写二进制数据的程序
 
-The module that is used to write and read the binary data is known as struct. This module allows the functionality and with it many functionalities to be used that consists of the string class. This class contains the binary data that is in the form of numbers that gets converted in python objects for use and vice versa. The program can read or write the binary data is:
+用来读写二进制数据的模块是struct，此类包含二进制数据，被转换为数字的形式在Python对象使用，反之亦然。
 
-```
+下面是读写二进制数据的程序：
+
+```python
 import struct
-f = open(file-name, "rb") 
+f = open(filename, "rb") 
 # This Open() method allows the file to get opened in binary mode to make it portable for # use. 
 s = f.read(8)
 x, y, z = struct.unpack(">hhl", s)
 ```
 
-The ‘>” is used to show the format string that allows the string to be converted in big-endian data form. For homogenous list of data the array module can be used that will allow the data to be kept more organized fashion.
+“>”是用来显示格式字符串，这个模块允许功能和它的许多功能被字符串类使用。它允许在高位优先要转换的字符串数据的形式。
+对于同质的列表数据，可以使用数组模块，允许数据以更有条理的方式保存。
 
 ### What is the process to run sub-process with pipes that connect both input and output?
 
