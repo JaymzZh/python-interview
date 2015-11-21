@@ -767,9 +767,10 @@ Python解释器可用于提供配置设置文件的动态加载并重建解释�
     # Write the function that need to be included.
     ```
 
-### How does global value mutation used for thread-safety?
+### 如何使用线程安全全局值？
 
-The global interpreter lock is used to allow the running of the thread one at a time. This is internal to the program only and used to distribute the functionality along all the virtual machines that are used. Python allows the switching between the threads to be performed by using the byte code instructions that are used to provide platform-independence. The sys.setcheckinterval() method is used that allow the switching to occur during the implementation of the program and the instruction. This provides the understanding in the field of accounting to use the byte code implementation that makes it portable to use. The atomicity can be provided such that the shared variables can be given as built-in data types.
+全局解释锁被用来同一运行时间一次只允许一个线程。这是内部的唯一的用于为所有所使用的虚拟机分配功能的程序。Python允许通过使用用于提供平台独立性的字节代码指令执行的线程之间的切换。
+sys.setcheckinterval()方法允许程序和指令在执行过程中切换。这让使用字节代码执行并使得它使用便携易于理解。这种原子性使得共享变量可以作为内置的数据类型。
 
 ### 请用python写一个读写二进制数据的程序
 
