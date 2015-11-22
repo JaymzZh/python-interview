@@ -789,11 +789,15 @@ x, y, z = struct.unpack(">hhl", s)
 “>”是用来显示格式字符串，这个模块允许功能和它的许多功能被字符串类使用。它允许在高位优先要转换的字符串数据的形式。
 对于同质的列表数据，可以使用数组模块，允许数据以更有条理的方式保存。
 
-### What is the process to run sub-process with pipes that connect both input and output?
+### 连接输入和输出管道运行子进程的进程是什么？
 
-The `popen2()` module is used to run the sub-process but due to some difficulty in processing like creation of deadlock that keep a process blocked that wait for the output from the child and child is waiting for the input. The dead lock occurs due to the fact that parent and child doesn’t have the synchronization and both are waiting to get the processor to provide the resources to one another. Use of popen3() method allow the reading of stdout and stderr to take place where the internal buffer increases and there is no read() takes place to share the resources. popen2() take care of the deadlock by providing the methods like wait() and waitpid() that finishes a process first and when a request comes it hands over the responsibility to the process that is waiting for the resources. The program is used to show the process and run it.
+`popen2()`模块用于运行该子过程，但由于一些处理困难像创建一个死锁，保持一个进程阻塞，等待子进程的输出，而子进程又等待输入。
+死锁的发生是由于父和子不具有同步并且都等待获得处理器提供彼此的资源。
+使用popen3()方法，允许读取输出和错误来代替内部缓冲区，也没有代替共享的资源的读取方法。
+popen2()通过提供像wait()和waitpid()方法来接管死锁，首先结束一个进程，当一个请求到达时，它移交职责给等待资源的进程。
+该程序用于显示进程并运行它。
 
-```
+```python
 import popen2
 fromchild, tochild = popen2.popen2("command")
 tochild.write("input\n")
@@ -801,33 +805,39 @@ tochild.flush()
 output = fromchild.readline()
 ```
 
-### What are the different ways to generate random numbers?
+### 有哪些不同的方式来产生随机数？
 
-Random module is the standard module that is used to generate the random number. 
-The method is defined as:
+Random模块是用于产生随机数的标准模块。
+该方法被定义为：
 
-```
+```python
 import random
 random.random()
 ```
 
-The statement random.random() method return the floating point number that is in the range of [0, 1). The function generates the random float numbers. The methods that are used with the random class are the bound methods of the hidden instances. The instances of the Random can be done to show the multi-threading programs that creates different instance of individual threads. The other random generators that are used in this are:
+random.random()方法返回在[0，1）的范围内的浮点数。该函数生成随机浮点数，所使用的随机类的方法是隐藏的实例的结合的方法。Random实例可以用来表明多线程程序通过单线程可以创建不同的实例。
 
-- randrange(a, b): it chooses an integer and define the range in-between [a, b). It returns the elements by selecting it randomly from the range that is specified. It doesn’t build a range object. 
-- uniform(a, b): it chooses a floating point number that is defined in the range of [a,b).Iyt returns the floating point number
-- normalvariate(mean, sdev): it is used for the normal distribution where the mu is a mean and the sdev is a sigma that is used for standard deviation. 
-- The Random class that is used and instantiated creates an independent multiple random number generators.
+其他随机数生成器的使用：
 
-### Write a program to show the singleton pattern used in python.
+- randrange(a, b): 它选择一个整数，定义该范围在[a，b）两者之间。它返回由从所指定的范围内选择它随机的元素。它不创建一个range对象。
+- uniform(a, b): 它选择在[a, b) 范围内的浮点数。
+- normalvariate(mean, sdev): 它被用于正常分布，其中mu是一个平均值和sdev是用于标准偏差的Σ。
+- Random类被用来创建一个独立的多个随机数生成器。
 
-Singleton patter is used to provide a mechanism that limits the number of instances that can be used by one class. It also allows the same object to be shared between many different parts of the code. This allows the global variables to be used as the actual data that is used is hidden by the singleton class interface. The singleton class interface can have only one public member and one class method Handle. Private constructors are not used to create an object that is used outside the class. The process waits for the static member function to create new instances and return the singleton object. The code that is used to call the singleton object is:
+### 用python编写一个程序并且使用Singleton模式。
 
-```
+Singleton模式用于限制一个类的实例的数量。它也允许在代码的许多不同部分之间共享相同的对象。
+这允许使用的全局变量，它是用于实际的数据被隐藏在单个类接口。单例类的接口只能有一个公共的成员和一个类的方法句柄。
+私有构造函数不是用来创建所使用的类之外的对象。这个进程等待静态成员函数来创建新实例并返回单独的对象。
+
+用于调用singleton对象的代码：
+
+```c++
 Singleton& Singleton::Handle() 
 {
-if( !psingle ) {
-psingle = new Singleton;
-}
-return *psingle;
+    if( !psingle ) {
+        psingle = new Singleton;
+    }
+    return *psingle;
 }
 ```
